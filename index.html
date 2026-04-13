@@ -406,13 +406,13 @@ footer { padding:60px; border-top:1px solid rgba(61,139,205,0.1); display:grid; 
   <div class="success-icon">🎉</div>
   <h2 class="success-title">تم الطلب بنجاح!</h2>
   <p class="success-sub">شكراً لك! تم استلام طلبك وسيتم توصيله خلال ٢–٥ أيام عمل مع ضمان الأصالة.</p>
-  <p class="success-order" id="orderNum">رقم الطلب: #LUXE-0000</p>
+  <p class="success-order" id="orderNum">رقم الطلب: #NABD-0000</p>
   <button class="btn btn-primary" onclick="resetAll()">← العودة للمتجر</button>
 </div>
 
 <!-- NAV -->
 <nav>
-  <div class="logo" onclick="resetAll()">LUXE</div>
+  <div class="logo" onclick="resetAll()">NABD</div>
   <ul class="nav-links">
     <li><a href="#cats">الأقسام</a></li>
     <li><a href="#products">المنتجات</a></li>
@@ -526,7 +526,7 @@ footer { padding:60px; border-top:1px solid rgba(61,139,205,0.1); display:grid; 
 
 <!-- FOOTER -->
 <footer>
-  <div><span class="footer-logo">LUXE</span><p class="footer-desc">وجهتك الأولى للساعات والمحافظ الفاخرة. نضمن الأصالة الكاملة مع ضمان سنتين وتوصيل سريع.</p></div>
+  <div><span class="footer-logo">NABD</span><p class="footer-desc">وجهتك الأولى للساعات والمحافظ الفاخرة. نضمن الأصالة الكاملة مع ضمان سنتين وتوصيل سريع.</p></div>
   <div>
     <p class="footer-col-title">الأقسام</p>
     <ul class="footer-links"><li><a href="#">ساعات كلاسيك</a></li><li><a href="#">ساعات رولكس</a></li><li><a href="#">ساعات رياضية</a></li><li><a href="#">ساعات عادية</a></li><li><a href="#">محافظ</a></li></ul>
@@ -541,7 +541,7 @@ footer { padding:60px; border-top:1px solid rgba(61,139,205,0.1); display:grid; 
   </div>
 </footer>
 <div class="footer-bottom">
-  <span>© 2026 LUXE WATCH. جميع الحقوق محفوظة</span>
+  <span>© 2026 NABD WATCH. جميع الحقوق محفوظة</span>
   <span>💳 Visa · Mastercard · Apple Pay · مدى · STC Pay</span>
 </div>
 
@@ -585,8 +585,8 @@ const PRODUCTS = [
 // ═══════════════════════════════════
 // STATE
 // ═══════════════════════════════════
-let cart = store.get('luxe_cart') || [];
-let wishlist = store.get('luxe_wish') || [];
+let cart = store.get('NABD_cart') || [];
+let wishlist = store.get('NABD_wish') || [];
 let currentFilter = 'all';
 let currentSort = 'default';
 let selectedPayment = 'card';
@@ -596,7 +596,7 @@ let toastTimer = null;
 // ═══════════════════════════════════
 // CART LOGIC
 // ═══════════════════════════════════
-function saveCart() { store.set('luxe_cart', cart); }
+function saveCart() { store.set('NABD_cart', cart); }
 function getTotal() { return cart.reduce((s,i) => s + i.price*i.qty, 0); }
 function getCount() { return cart.reduce((s,i) => s + i.qty, 0); }
 
@@ -708,7 +708,7 @@ function toggleWish(e, id) {
   e.stopPropagation();
   if (wishlist.includes(id)) { wishlist=wishlist.filter(x=>x!==id); showToast('💔','إزالة','تم الإزالة من المفضلة'); }
   else { wishlist.push(id); showToast('❤️','مفضلة','تم الإضافة للمفضلة'); }
-  store.set('luxe_wish', wishlist);
+  store.set('NABD_wish', wishlist);
   renderProducts();
 }
 
@@ -834,7 +834,7 @@ function placeOrder() {
     if (!valid) ok=false;
   }
   if (!ok) { showToast('⚠️','تنبيه','يرجى تعبئة جميع الحقول'); return; }
-  const num='LUXE-'+Math.floor(10000+Math.random()*90000);
+  const num='NABD-'+Math.floor(10000+Math.random()*90000);
   document.getElementById('orderNum').textContent='رقم الطلب: #'+num;
   document.getElementById('checkoutPage').classList.remove('open');
   document.getElementById('successPage').classList.add('open');
